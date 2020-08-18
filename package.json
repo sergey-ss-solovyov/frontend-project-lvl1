@@ -1,0 +1,26 @@
+{
+  "name": "frontend-lvl1",
+  "version": "1.0.0",
+  "description": "1st frontend project \"Brain Games\"",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergey-ss-solovyov/frontend-project-lvl1.git"
+  },
+  "keywords": [
+    "brain_games"
+  ],
+  "author": "Sergey Solovyov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergey-ss-solovyov/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/sergey-ss-solovyov/frontend-project-lvl1#readme",
+  "type": "module"
+}
