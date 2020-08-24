@@ -9,7 +9,7 @@ export const questionExpression = () => {
   const calcRandNum2 = () => Math.floor(Math.random() * 100);
   const operatorsSet = ['+', '*', '-'];
   // positionNum: random value from [0, 1, 2]
-  const positionNum = () => Math.floor(Math.random() * Math.floor(3));
+  const positionNum = () => Math.floor(Math.random() * 3);
   return `${calcRandNum1()} ${operatorsSet[positionNum()]} ${calcRandNum2()}`;
 };
 const sum = (num1, num2) => num1 + num2;

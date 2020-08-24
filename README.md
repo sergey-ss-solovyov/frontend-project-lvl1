@@ -12,3 +12,5 @@
 <a href="https://asciinema.org/a/YaB0AyQaONFTXBN0lqXx2OBqk">"Brain-calc" Asciinema</a>
 
 <a href="https://asciinema.org/a/8DNYWr6FNF4qKLZLIssmWnmUR">"Brain-gcd" Asciinema</a>
+
+<a href="https://asciinema.org/a/K33ctoZxHZaBzt3g8ATaWFL6I">"Brain-progression" Asciinema</a>

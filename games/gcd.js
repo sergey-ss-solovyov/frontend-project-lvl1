@@ -7,14 +7,13 @@ export const issue = () => 'Find the greatest common divisor of given numbers.';
 
 export const pairOfNumbers = () => {
   const multipliers = [2, 3, 5, 7, 11];
-  // positionNum: random value from [0, 1, 2, 3, 4]
-  const positionNum = () => Math.floor(Math.random() * Math.floor(5));
-  // randomNumber: value from [2, 3, 4, 5, 6, 7, 8, 9, 10]
+  // positionNum: random value from 0 to 4 with a step of 1
+  const positionNum = () => Math.floor(Math.random() * 5);
+  // randomNumber: value from 2 to 10 with a step of 1
   const randomNumber = () => Math.ceil(Math.random() * (10 - 1) + 1);
   const parentNumber = randomNumber();
   const num1 = parentNumber * multipliers[positionNum()];
   const num2 = parentNumber * multipliers[positionNum()];
-  // const pair = cons(num1, num2);
   return `${num1} ${num2}`;
 };
 
