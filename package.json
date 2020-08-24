@@ -29,6 +29,7 @@
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",
+    "@hexlet/pairs": "^1.0.15",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

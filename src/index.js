@@ -1,6 +1,15 @@
 import readlineSync from 'readline-sync';
 
-const iter = (questionFunc, answerFunc, user, acc) => {
+export const greeting = (issue) => {
+  console.log('Welcome to the Brain Games!');
+  const getUsername = () => readlineSync.question('May I have your name? ');
+  const username = getUsername();
+  console.log(`Hello, ${username}!`);
+  console.log(issue);
+  return username;
+};
+
+export const iter = (questionFunc, answerFunc, user, acc) => {
   if (acc === 3) {
     console.log(`Congratulations, ${user}!`);
     return;
@@ -18,5 +27,3 @@ const iter = (questionFunc, answerFunc, user, acc) => {
     console.log(`Let's try again, ${user}!`);
   }
 };
-
-export default iter;

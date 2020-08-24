@@ -1,17 +1,6 @@
 #!/usr/bin/env node
 
-import iter from '../src/questions-cycle.js';
-import greeting from '../src/user-greeting.js';
+import { greeting, iter } from '../src/index.js';
+import { randomNumber, correctAnswer, issue } from '../games/even.js';
 
-const randomNumber = () => Math.floor(Math.random() * 100);
-const correctAnswer = (data) => {
-  if (data % 2 === 0) return 'yes';
-  return 'no';
-};
-
-console.log('Welcome to the Brain Games!');
-const username = greeting();
-console.log(`Hello, ${username}!`);
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-iter(randomNumber, correctAnswer, username, 0);
+iter(randomNumber, correctAnswer, greeting(issue()), 0);
