@@ -1,7 +1,7 @@
 export const issue = () => 'What number is missing in the progression?';
 
 export const arithmProgression = () => {
-  // startNum, progStep: random value from 1 to 10 with a step of 1
+  // startNum, progressionStep: random values from 1 to 10 with a step of 1
   // substituteIndex: random value from 1 to 8 with a step of 1
   const startNum = () => Math.ceil(Math.random() * 10);
   const progressionStep = () => Math.ceil(Math.random() * 10);

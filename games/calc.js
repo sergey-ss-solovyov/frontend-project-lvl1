@@ -5,10 +5,11 @@ const { cons, car, cdr } = pkg;
 
 export const issue = () => 'What is the result of the expression?';
 export const questionExpression = () => {
+  // calcRandNums: random values from 0 to 99 with a step of 1
   const calcRandNum1 = () => Math.floor(Math.random() * 100);
   const calcRandNum2 = () => Math.floor(Math.random() * 100);
   const operatorsSet = ['+', '*', '-'];
-  // positionNum: random value from [0, 1, 2]
+  // positionNum: random value from 0 to 2
   const positionNum = () => Math.floor(Math.random() * 3);
   return `${calcRandNum1()} ${operatorsSet[positionNum()]} ${calcRandNum2()}`;
 };
