@@ -18,6 +18,6 @@ export const arithmProgression = () => {
 
 export const correctAnswer = (data) => {
   const progression = data.split(' ');
-  const substIndex = progression.indexOf('..'); // ?
+  const substIndex = progression.indexOf('..');
   return String((+progression[substIndex - 1] + +progression[substIndex + 1]) / 2);
 };

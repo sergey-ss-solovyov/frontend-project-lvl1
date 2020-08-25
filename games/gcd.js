@@ -18,7 +18,7 @@ export const pairOfNumbers = () => {
 };
 
 export const correctAnswer = (data) => {
-  // sort: Z -> A
+  // sort: descending order
   const numbers = data.split(' ').sort((a, b) => b - a);
   const pair = cons(numbers[0], numbers[1]);
   const gcd = (num1, num2) => {
