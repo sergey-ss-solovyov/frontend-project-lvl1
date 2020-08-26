@@ -1,12 +1,17 @@
 # frontend-project-lvl1
 
-## nodejs-package
+This repository was created by Sergey Solovyov as the first project ['Brain Games'](https://ru.hexlet.io/professions/frontend/projects/44) 
 
+Course: 'Frontend programmer' by ['Hexlet'](https://ru.hexlet.io/)
+
+
+## nodejs-package
 
 [![Node CI](https://github.com/sergey-ss-solovyov/frontend-project-lvl1/workflows/CI/badge.svg)](https://github.com/sergey-ss-solovyov/frontend-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-### asciinema
+
+### asciinemas
 
 <a href="https://asciinema.org/a/g3QIRjkzGvjlHozzYkAVinFSC">brain-even</a>
 
