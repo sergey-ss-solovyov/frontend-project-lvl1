@@ -1,29 +1,24 @@
 import readlineSync from 'readline-sync';
 
-export const greeting = (issue) => {
+export const greeting = (task) => {
   console.log('Welcome to the Brain Games!');
-  const getUsername = () => readlineSync.question('May I have your name? ');
-  const username = getUsername();
+  const username = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${username}!`);
-  console.log(issue);
+  console.log(task);
   return username;
 };
 
-export const iter = (questionFunc, answerFunc, user, acc) => {
-  if (acc === 3) {
-    console.log(`Congratulations, ${user}!`);
-    return;
-  }
-  const question = questionFunc();
-  const correctAnswer = answerFunc(question);
+export const gameplay = (numbers, restOfRounds, username) => {
+  const { question, answer } = numbers;
   console.log(`Question: ${question}`);
   const userAnswer = readlineSync.question('Your answer: ');
-  if (userAnswer === correctAnswer) {
-    console.log('Correct!');
-    const newAcc = acc + 1;
-    iter(questionFunc, answerFunc, user, newAcc);
+  const isUserRight = userAnswer === answer;
+  if (!isUserRight) {
+    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}".`);
+    console.log(`Let's try again, ${username}!`);
   } else {
-    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
-    console.log(`Let's try again, ${user}!`);
+    console.log('Correct!');
+    if (restOfRounds === 0) console.log(`Congratulations, ${username}!`);
   }
+  return isUserRight;
 };
