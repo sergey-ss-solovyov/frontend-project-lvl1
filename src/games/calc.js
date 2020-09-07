@@ -1,22 +1,18 @@
 import pkg from '@hexlet/pairs';
-import { greeting, gameplay } from '../index.js';
-import randomNumber from '../random-number.js';
+import gameplay from '../index.js';
+import randomNumber from '../calculators/random-number-calculator.js';
+import { sum, multiply, difference } from '../calculators/arithmetic-calculator.js';
 
 // CommonJS doesn't support named export
 const { cons, car, cdr } = pkg;
 
 export default () => {
   const task = 'What is the result of the expression?';
-  const username = greeting(task);
 
   const operands = () => {
     const operatorsSet = ['+', '*', '-'];
     return `${randomNumber(0, 99)} ${operatorsSet[randomNumber(0, 2)]} ${randomNumber(0, 99)}`;
   };
-
-  const sum = (num1, num2) => num1 + num2;
-  const multiply = (num1, num2) => num1 * num2;
-  const difference = (num1, num2) => num1 - num2;
 
   const correctAnswer = (str) => {
     const expParts = str.split(' ');
@@ -31,14 +27,15 @@ export default () => {
     }
   };
 
-  // for choise of any number of rounds for this specific game
-  let roundsTotal = 3;
-  do {
+  const iter = (obj, acc) => {
+    if (acc === 3) return obj;
     const question = operands();
     const answer = correctAnswer(question);
-    const numbers = { question, answer };
-    const isUserRight = gameplay(numbers, roundsTotal - 1, username);
-    if (!isUserRight) return;
-    roundsTotal -= 1;
-  } while (roundsTotal > 0);
+    obj.question.push(question);
+    obj.answer.push(answer);
+    return iter(obj, acc + 1);
+  };
+  const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
+
+  gameplay(task, questionsAndAnswers);
 };
