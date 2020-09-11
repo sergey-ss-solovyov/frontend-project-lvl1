@@ -1,21 +1,21 @@
 import gameplay from '../index.js';
 import randomNumber from '../calculators/random-number-calculator.js';
 
+const correctAnswer = (data) => {
+  const iter = (acc) => {
+    if (acc > data / 2) {
+      return 'yes';
+    }
+    if (data % acc === 0) {
+      return 'no';
+    }
+    return iter(acc + 1);
+  };
+  return iter(2);
+};
+
 export default () => {
   const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-  const correctAnswer = (data) => {
-    const iter = (acc) => {
-      if (acc > data / 2) {
-        return 'yes';
-      }
-      if (data % acc === 0) {
-        return 'no';
-      }
-      return iter(acc + 1);
-    };
-    return iter(2);
-  };
 
   const iter = (obj, acc) => {
     if (acc === 3) return obj;
