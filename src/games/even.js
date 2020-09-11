@@ -1,4 +1,4 @@
-import playGame from '../index.js';
+import startGameEngine from '../index.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
 
 const makeCorrectAnswer = (data) => {
@@ -19,5 +19,5 @@ export default () => {
   };
   const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
 
-  playGame(task, questionsAndAnswers);
+  startGameEngine(task, questionsAndAnswers);
 };

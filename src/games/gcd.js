@@ -1,11 +1,11 @@
-import pkg from '@hexlet/pairs';
-import playGame from '../index.js';
+import pairPackage from '@hexlet/pairs';
+import startGameEngine from '../index.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
 import sequence from '../calculators/sequence-calculator.js';
 import gcd from '../calculators/gcd-calculator.js';
 
 // CommonJS doesn't support named export
-const { cons, car, cdr } = pkg;
+const { cons, car, cdr } = pairPackage;
 
 const makePairOfNumbers = () => {
   const multipliers = sequence(2, 9);
@@ -35,5 +35,5 @@ export default () => {
   };
   const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
 
-  playGame(task, questionsAndAnswers);
+  startGameEngine(task, questionsAndAnswers);
 };
