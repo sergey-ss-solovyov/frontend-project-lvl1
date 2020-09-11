@@ -1,7 +1,7 @@
-import gameplay from '../index.js';
-import randomNumber from '../calculators/random-number-calculator.js';
+import playGame from '../index.js';
+import makeRandomNumber from '../calculators/random-number-calculator.js';
 
-const correctAnswer = (data) => {
+const makeCorrectAnswer = (data) => {
   const iter = (acc) => {
     if (acc > data / 2) {
       return 'yes';
@@ -19,13 +19,13 @@ export default () => {
 
   const iter = (obj, acc) => {
     if (acc === 3) return obj;
-    const question = randomNumber(2, 113);
-    const answer = correctAnswer(question);
+    const question = makeRandomNumber(2, 113);
+    const answer = makeCorrectAnswer(question);
     obj.question.push(question);
     obj.answer.push(answer);
     return iter(obj, acc + 1);
   };
   const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
 
-  gameplay(task, questionsAndAnswers);
+  playGame(task, questionsAndAnswers);
 };

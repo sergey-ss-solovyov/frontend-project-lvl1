@@ -1,17 +1,17 @@
 import pkg from '@hexlet/pairs';
-import gameplay from '../index.js';
-import randomNumber from '../calculators/random-number-calculator.js';
+import playGame from '../index.js';
+import makeRandomNumber from '../calculators/random-number-calculator.js';
 import { sum, multiply, difference } from '../calculators/arithmetic-calculator.js';
 
 // CommonJS doesn't support named export
 const { cons, car, cdr } = pkg;
 
-const operands = () => {
+const makeOperands = () => {
   const operatorsSet = ['+', '*', '-'];
-  return `${randomNumber(0, 99)} ${operatorsSet[randomNumber(0, 2)]} ${randomNumber(0, 99)}`;
+  return `${makeRandomNumber(0, 99)} ${operatorsSet[makeRandomNumber(0, 2)]} ${makeRandomNumber(0, 99)}`;
 };
 
-const correctAnswer = (str) => {
+const makeCorrectAnswer = (str) => {
   const expParts = str.split(' ');
   const pair = cons(+expParts[0], +expParts[2]);
   switch (expParts[1]) {
@@ -29,13 +29,13 @@ export default () => {
 
   const iter = (obj, acc) => {
     if (acc === 3) return obj;
-    const question = operands();
-    const answer = correctAnswer(question);
+    const question = makeOperands();
+    const answer = makeCorrectAnswer(question);
     obj.question.push(question);
     obj.answer.push(answer);
     return iter(obj, acc + 1);
   };
   const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
 
-  gameplay(task, questionsAndAnswers);
+  playGame(task, questionsAndAnswers);
 };
