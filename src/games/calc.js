@@ -1,37 +1,36 @@
-import pkg from '@hexlet/pairs';
 import startGameEngine from '../index.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
-
-// CommonJS doesn't support named export
-const { cons, car, cdr } = pkg;
 
 const sum = (num1, num2) => num1 + num2;
 const multiply = (num1, num2) => num1 * num2;
 const difference = (num1, num2) => num1 - num2;
+const operatorsSet = ['+', '*', '-'];
 
-const makeOperands = () => {
-  const operatorsSet = ['+', '*', '-'];
-  return `${makeRandomNumber(0, 99)} ${operatorsSet[makeRandomNumber(0, 2)]} ${makeRandomNumber(0, 99)}`;
+const makeResult = (num1, num2, operator) => {
+  switch (operator) {
+    case '+':
+      return String(sum(num1, num2));
+    case '*':
+      return String(multiply(num1, num2));
+    default:
+      return String(difference(num1, num2));
+  }
 };
 
-const makeCorrectAnswer = (str) => {
-  const expParts = str.split(' ');
-  const pair = cons(+expParts[0], +expParts[2]);
-  switch (expParts[1]) {
-    case '+':
-      return String(sum(car(pair), cdr(pair)));
-    case '*':
-      return String(multiply(car(pair), cdr(pair)));
-    default:
-      return String(difference(car(pair), cdr(pair)));
-  }
+const makeExpression = () => {
+  const num1 = makeRandomNumber(0, 99);
+  const num2 = makeRandomNumber(0, 99);
+  const operator = operatorsSet[makeRandomNumber(0, 2)];
+  const result = makeResult(num1, num2, operator);
+  return [num1, num2, operator, result];
 };
 
 export const makeCalcQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
-    const question = makeOperands();
-    const answer = makeCorrectAnswer(question);
+    const [num1, num2, operator, result] = makeExpression();
+    const question = `${num1} ${operator} ${num2}`;
+    const answer = result;
     return iter([...acc, [question, answer]]);
   };
   return iter([]);

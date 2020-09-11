@@ -14,16 +14,16 @@ export default (task, calculator) => {
       return;
     }
 
-    const questionAndAnswer = calculatorFunc(numberOfRounds);
-    console.log(`Question: ${questionAndAnswer[counter][0]}`);
+    const questionsAndAnswers = calculatorFunc(numberOfRounds);
+    console.log(`Question: ${questionsAndAnswers[counter][0]}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const isUserRight = userAnswer === questionAndAnswer[counter][1];
+    const isUserRight = userAnswer === questionsAndAnswers[counter][1];
 
     if (isUserRight) {
       console.log('Correct!');
       startGameEngine(calculatorFunc, counter + 1);
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${questionAndAnswer[counter][1]}".`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${questionsAndAnswers[counter][1]}".`);
       console.log(`Let's try again, ${username}!`);
     }
   };
