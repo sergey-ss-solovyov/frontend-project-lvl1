@@ -1,31 +1,30 @@
 import startGameEngine from '../index.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
 
-const makeCorrectAnswer = (data) => {
-  const iter = (acc) => {
-    if (acc > data / 2) {
+const isPrime = (data) => {
+  const iter = (n) => {
+    if (n > data / 2) {
       return 'yes';
     }
-    if (data % acc === 0) {
+    if (data % n === 0) {
       return 'no';
     }
-    return iter(acc + 1);
+    return iter(n + 1);
   };
   return iter(2);
 };
 
-export default () => {
-  const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-  const iter = (obj, acc) => {
-    if (acc === 3) return obj;
+export const makePrimeQuestionsAnswers = (counter) => {
+  const iter = (acc) => {
+    if (acc.length === counter) return acc;
     const question = makeRandomNumber(2, 113);
-    const answer = makeCorrectAnswer(question);
-    obj.question.push(question);
-    obj.answer.push(answer);
-    return iter(obj, acc + 1);
+    const answer = isPrime(question);
+    return iter([...acc, [question, answer]]);
   };
-  const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
+  return iter([]);
+};
 
-  startGameEngine(task, questionsAndAnswers);
+export const playGame = () => {
+  const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  startGameEngine(task, makePrimeQuestionsAnswers);
 };

@@ -1,28 +1,31 @@
 import readlineSync from 'readline-sync';
 
-export default (task, questionsAnswers) => {
+export default (task, calculator) => {
   console.log('Welcome to the Brain Games!');
   const username = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${username}!`);
   console.log(task);
 
-  const iter = (questionsAndAnswers, acc) => {
-    if (acc === 3) {
+  const numberOfRounds = 3;
+
+  const startGameEngine = (calculatorFunc, counter) => {
+    if (counter === numberOfRounds) {
       console.log(`Congratulations, ${username}!`);
       return;
     }
-    const { question, answer } = questionsAndAnswers;
-    console.log(`Question: ${question[acc]}`);
+
+    const questionAndAnswer = calculatorFunc(numberOfRounds);
+    console.log(`Question: ${questionAndAnswer[counter][0]}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const isUserRight = userAnswer === answer[acc];
+    const isUserRight = userAnswer === questionAndAnswer[counter][1];
 
     if (isUserRight) {
       console.log('Correct!');
-      iter(questionsAndAnswers, acc + 1);
+      startGameEngine(calculatorFunc, counter + 1);
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer[acc]}".`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${questionAndAnswer[counter][1]}".`);
       console.log(`Let's try again, ${username}!`);
     }
   };
-  iter(questionsAnswers, 0);
+  startGameEngine(calculator, 0);
 };

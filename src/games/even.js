@@ -6,18 +6,17 @@ const makeCorrectAnswer = (data) => {
   return 'no';
 };
 
-export default () => {
-  const task = 'Answer "yes" if the number is even, otherwise answer "no".';
-
-  const iter = (obj, acc) => {
-    if (acc === 3) return obj;
+export const makeEvenQuestionsAnswers = (counter) => {
+  const iter = (acc) => {
+    if (acc.length === counter) return acc;
     const question = makeRandomNumber(0, 99);
     const answer = makeCorrectAnswer(question);
-    obj.question.push(question);
-    obj.answer.push(answer);
-    return iter(obj, acc + 1);
+    return iter([...acc, [question, answer]]);
   };
-  const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
+  return iter([]);
+};
 
-  startGameEngine(task, questionsAndAnswers);
+export const playGame = () => {
+  const task = 'Answer "yes" if the number is even, otherwise answer "no".';
+  startGameEngine(task, makeEvenQuestionsAnswers);
 };

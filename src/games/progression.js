@@ -1,32 +1,37 @@
 import startGameEngine from '../index.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
-import sequence from '../calculators/sequence-calculator.js';
 
-const makeProgression = () => {
-  const progression = sequence(makeRandomNumber(1, 10), 10, makeRandomNumber(1, 10));
-  const { length } = progression;
-  progression[makeRandomNumber(1, length - 2)] = '..';
-  return progression.join(' ');
+const makeSequence = (start, length, step = 1) => {
+  const seq = [];
+  seq[0] = start;
+  for (let i = 1; i < length; i += 1) {
+    seq[i] = seq[i - 1] + step;
+  }
+  return seq;
 };
 
-const makeCorrectAnswer = (data) => {
-  const progression = data.split(' ');
-  const substIndex = progression.indexOf('..');
-  return String((+progression[substIndex - 1] + +progression[substIndex + 1]) / 2);
+const progressionLength = 10;
+
+const makeProgrssnAndAnswer = (progression) => {
+  const gameProgression = progression;
+  const substituteIndex = makeRandomNumber(1, progressionLength - 2);
+  const substituteNumber = String(gameProgression[substituteIndex]);
+  gameProgression[substituteIndex] = '..';
+  return [gameProgression.join(' '), substituteNumber];
 };
 
-export default () => {
-  const task = 'What number is missing in the progression?';
-
-  const iter = (obj, acc) => {
-    if (acc === 3) return obj;
-    const question = makeProgression();
-    const answer = makeCorrectAnswer(question);
-    obj.question.push(question);
-    obj.answer.push(answer);
-    return iter(obj, acc + 1);
+export const makeQuestionsAnswers = (counter) => {
+  const iter = (acc) => {
+    if (acc.length === counter) return acc;
+    const rawProgression = makeSequence(makeRandomNumber(1, 10),
+      progressionLength, makeRandomNumber(1, 10));
+    const [progression, answer] = makeProgrssnAndAnswer(rawProgression);
+    return iter([...acc, [progression, answer]]);
   };
-  const questionsAndAnswers = iter({ question: [], answer: [] }, 0);
+  return iter([]);
+};
 
-  startGameEngine(task, questionsAndAnswers);
+export const playGame = () => {
+  const task = 'What number is missing in the progression?';
+  startGameEngine(task, makeQuestionsAnswers);
 };
