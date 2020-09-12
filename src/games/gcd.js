@@ -26,8 +26,10 @@ const makeSequence = (start, length, step = 1) => {
 };
 
 const makePairOfNumbers = () => {
-  const multipliers = makeSequence(2, 9);
-  const { length } = multipliers;
+  const firstValue = 2;
+  const length = 9;
+  const multipliers = makeSequence(firstValue, length);
+  // const { length } = multipliers;
   const num1 = makeRandomNumber(2, 10) * multipliers[makeRandomNumber(0, length - 1)];
   const num2 = makeRandomNumber(2, 10) * multipliers[makeRandomNumber(0, length - 1)];
   const gcd = String(findGCD(num1, num2));

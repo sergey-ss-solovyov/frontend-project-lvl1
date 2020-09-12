@@ -23,8 +23,9 @@ const makeProgrssnAndAnswer = (progression) => {
 export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
-    const rawProgression = makeSequence(makeRandomNumber(1, 10),
-      progressionLength, makeRandomNumber(1, 10));
+    const firstValue = makeRandomNumber(1, 10);
+    const stepValue = makeRandomNumber(1, 10);
+    const rawProgression = makeSequence(firstValue, progressionLength, stepValue);
     const [progression, answer] = makeProgrssnAndAnswer(rawProgression);
     return iter([...acc, [progression, answer]]);
   };
