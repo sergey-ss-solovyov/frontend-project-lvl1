@@ -1,5 +1,4 @@
 import startGameEngine from '../index.js';
-import makeSequence from '../calculators/sequence-calculator.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
 
 const findGCD = (num1, num2) => {
@@ -18,9 +17,8 @@ const findGCD = (num1, num2) => {
 };
 
 const makePairOfNumbers = () => {
-  const firstValue = 2;
-  const length = 9;
-  const multipliers = makeSequence(firstValue, length);
+  const multipliers = [2, 3, 4, 5, 6, 7, 8, 9];
+  const { length } = multipliers;
   const num1 = makeRandomNumber(2, 10) * multipliers[makeRandomNumber(0, length - 1)];
   const num2 = makeRandomNumber(2, 10) * multipliers[makeRandomNumber(0, length - 1)];
   const gcd = String(findGCD(num1, num2));
