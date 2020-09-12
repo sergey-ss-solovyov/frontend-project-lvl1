@@ -12,7 +12,8 @@ Course: 'Frontend programmer' by ['Hexlet'](https://ru.hexlet.io/)
 
 ### about apps
 "Brain games" is a set of five arithmetic console games special to boost your mind.
-All games list by the name:
+
+All avaliable games list by their names:
 - brain-calc
 - brain-even
 - brain-gcd
