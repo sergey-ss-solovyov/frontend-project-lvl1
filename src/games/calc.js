@@ -1,19 +1,16 @@
 import startGameEngine from '../index.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
 
-const sum = (num1, num2) => num1 + num2;
-const multiply = (num1, num2) => num1 * num2;
-const difference = (num1, num2) => num1 - num2;
 const operatorsSet = ['+', '*', '-'];
 
 const makeResult = (num1, num2, operator) => {
   switch (operator) {
     case '+':
-      return String(sum(num1, num2));
+      return String(num1 + num2);
     case '*':
-      return String(multiply(num1, num2));
+      return String(num1 * num2);
     default:
-      return String(difference(num1, num2));
+      return String(num1 - num2);
   }
 };
 
