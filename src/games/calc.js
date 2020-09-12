@@ -17,7 +17,7 @@ const makeResult = (num1, num2, operator) => {
   }
 };
 
-const makeExpression = () => {
+const makeExpressionAndAnswer = () => {
   const num1 = makeRandomNumber(0, 99);
   const num2 = makeRandomNumber(0, 99);
   const operator = operatorsSet[makeRandomNumber(0, 2)];
@@ -28,7 +28,7 @@ const makeExpression = () => {
 export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
-    const [num1, num2, operator, answer] = makeExpression();
+    const [num1, num2, operator, answer] = makeExpressionAndAnswer();
     const question = `${num1} ${operator} ${num2}`;
     return iter([...acc, [question, answer]]);
   };
