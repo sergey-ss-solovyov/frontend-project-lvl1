@@ -5,13 +5,25 @@ This repository was created by Sergey Solovyov as the first project ['Brain Game
 Course: 'Frontend programmer' by ['Hexlet'](https://ru.hexlet.io/)
 
 
-## nodejs-package
+### nodejs-package
 
 [![Node CI](https://github.com/sergey-ss-solovyov/frontend-project-lvl1/workflows/CI/badge.svg)](https://github.com/sergey-ss-solovyov/frontend-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/sergey-ss-solovyov/frontend-project-lvl1)
 
+### about apps
+"Brain games" is a set of five arithmetic console games special to boost your mind.
+All games list by the name:
+- brain-calc
+- brain-even
+- brain-gcd
+- brain-prime
+- brain-progression
 
-### asciinemas
+For start some game you should invoke it by its name in the terminal from any directory.
+
+For examine a gameplay, please follow the asciinema-links below. 
+
+### asciinemas:
 
 <a href="https://asciinema.org/a/g3QIRjkzGvjlHozzYkAVinFSC">brain-even</a>
 
