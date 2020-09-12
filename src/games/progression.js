@@ -1,8 +1,16 @@
 import startGameEngine from '../index.js';
-import makeSequence from '../calculators/sequence-calculator.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
 
 const progressionLength = 10;
+
+const makeSequence = (start, length, step = 1) => {
+  const seq = [];
+  seq[0] = start;
+  for (let i = 1; i < length; i += 1) {
+    seq[i] = seq[i - 1] + step;
+  }
+  return seq;
+};
 
 const makeProgrssnAndAnswer = (progression) => {
   const gameProgression = progression;

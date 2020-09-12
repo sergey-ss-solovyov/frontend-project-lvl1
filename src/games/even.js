@@ -1,16 +1,13 @@
 import startGameEngine from '../index.js';
 import makeRandomNumber from '../calculators/random-number-calculator.js';
 
-const makeCorrectAnswer = (data) => {
-  if (data % 2 === 0) return 'yes';
-  return 'no';
-};
+const isEven = (num) => num % 2 === 0;
 
 export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
     const question = makeRandomNumber(0, 99);
-    const answer = makeCorrectAnswer(question);
+    const answer = isEven(question) ? 'yes' : 'no';
     return iter([...acc, [question, answer]]);
   };
   return iter([]);
