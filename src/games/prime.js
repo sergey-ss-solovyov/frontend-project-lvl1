@@ -14,7 +14,7 @@ const isPrime = (data) => {
   return iter(2);
 };
 
-export const makePrimeQuestionsAnswers = (counter) => {
+export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
     const question = makeRandomNumber(2, 113);
@@ -26,5 +26,5 @@ export const makePrimeQuestionsAnswers = (counter) => {
 
 export const playGame = () => {
   const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  startGameEngine(task, makePrimeQuestionsAnswers);
+  startGameEngine(task, makeQuestionsAnswers);
 };

@@ -29,7 +29,6 @@
   "homepage": "https://github.com/sergey-ss-solovyov/frontend-project-lvl1#readme",
   "type": "module",
   "dependencies": {
-    "@hexlet/pairs": "^1.0.15",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

@@ -6,7 +6,7 @@ const makeCorrectAnswer = (data) => {
   return 'no';
 };
 
-export const makeEvenQuestionsAnswers = (counter) => {
+export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
     const question = makeRandomNumber(0, 99);
@@ -18,5 +18,5 @@ export const makeEvenQuestionsAnswers = (counter) => {
 
 export const playGame = () => {
   const task = 'Answer "yes" if the number is even, otherwise answer "no".';
-  startGameEngine(task, makeEvenQuestionsAnswers);
+  startGameEngine(task, makeQuestionsAnswers);
 };

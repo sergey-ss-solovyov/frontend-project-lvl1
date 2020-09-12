@@ -25,12 +25,11 @@ const makeExpression = () => {
   return [num1, num2, operator, result];
 };
 
-export const makeCalcQuestionsAnswers = (counter) => {
+export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
-    const [num1, num2, operator, result] = makeExpression();
+    const [num1, num2, operator, answer] = makeExpression();
     const question = `${num1} ${operator} ${num2}`;
-    const answer = result;
     return iter([...acc, [question, answer]]);
   };
   return iter([]);
@@ -38,5 +37,5 @@ export const makeCalcQuestionsAnswers = (counter) => {
 
 export const playGame = () => {
   const task = 'What is the result of the expression?';
-  startGameEngine(task, makeCalcQuestionsAnswers);
+  startGameEngine(task, makeQuestionsAnswers);
 };
