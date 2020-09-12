@@ -17,10 +17,8 @@ const findGcd = (num1, num2) => {
 };
 
 const makeNumbersAndGcd = () => {
-  const multipliers = [2, 3, 4, 5, 6, 7, 8, 9];
-  const { length } = multipliers;
-  const num1 = makeRandomNumber(2, 10) * multipliers[makeRandomNumber(0, length - 1)];
-  const num2 = makeRandomNumber(2, 10) * multipliers[makeRandomNumber(0, length - 1)];
+  const num1 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
+  const num2 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
   const gcd = String(findGcd(num1, num2));
   return [num1, num2, gcd];
 };
