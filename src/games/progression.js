@@ -1,5 +1,5 @@
 import startGameEngine from '../index.js';
-import makeRandomNumber from '../calculators/random-number-calculator.js';
+import makeRandomNumber from '../random-number-generator.js';
 
 const progressionLength = 10;
 
@@ -15,9 +15,9 @@ const makeSequence = (start, length, step = 1) => {
 const makeProgrssnAndAnswer = (progression) => {
   const gameProgression = progression;
   const substituteIndex = makeRandomNumber(1, progressionLength - 2);
-  const substituteNumber = String(gameProgression[substituteIndex]);
+  const substituteValue = String(gameProgression[substituteIndex]);
   gameProgression[substituteIndex] = '..';
-  return [gameProgression.join(' '), substituteNumber];
+  return [gameProgression.join(' '), substituteValue];
 };
 
 export const makeQuestionsAnswers = (counter) => {

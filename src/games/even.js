@@ -1,5 +1,5 @@
 import startGameEngine from '../index.js';
-import makeRandomNumber from '../calculators/random-number-calculator.js';
+import makeRandomNumber from '../random-number-generator.js';
 
 const isEven = (num) => num % 2 === 0;
 
