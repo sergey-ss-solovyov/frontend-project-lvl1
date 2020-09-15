@@ -1,23 +1,18 @@
 import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
-const operatorsSet = ['+', '*', '-'];
+const operators = ['+', '-', '*'];
+const { length } = operators;
 
 const makeResult = (num1, num2, operator) => {
-  switch (operator) {
-    case '+':
-      return String(num1 + num2);
-    case '*':
-      return String(num1 * num2);
-    default:
-      return String(num1 - num2);
-  }
+  if (operator === '*') return String(num1 * num2);
+  return operator === '+' ? String(num1 + num2) : String(num1 - num2);
 };
 
 const makeExpressionAndAnswer = () => {
   const num1 = makeRandomNumber(0, 99);
   const num2 = makeRandomNumber(0, 99);
-  const operator = operatorsSet[makeRandomNumber(0, 2)];
+  const operator = operators[makeRandomNumber(0, length - 1)];
   const result = makeResult(num1, num2, operator);
   return [num1, num2, operator, result];
 };
