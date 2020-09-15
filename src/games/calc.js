@@ -1,4 +1,4 @@
-import startGameEngine from '../index.js';
+import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
 const operatorsSet = ['+', '*', '-'];
@@ -34,5 +34,5 @@ export const makeQuestionsAnswers = (counter) => {
 
 export const playGame = () => {
   const task = 'What is the result of the expression?';
-  startGameEngine(task, makeQuestionsAnswers);
+  runGame(task, makeQuestionsAnswers);
 };

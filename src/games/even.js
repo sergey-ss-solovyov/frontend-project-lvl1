@@ -1,4 +1,4 @@
-import startGameEngine from '../index.js';
+import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
 const isEven = (num) => num % 2 === 0;
@@ -15,5 +15,5 @@ export const makeQuestionsAnswers = (counter) => {
 
 export const playGame = () => {
   const task = 'Answer "yes" if the number is even, otherwise answer "no".';
-  startGameEngine(task, makeQuestionsAnswers);
+  runGame(task, makeQuestionsAnswers);
 };

@@ -1,4 +1,4 @@
-import startGameEngine from '../index.js';
+import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
 const isPrime = (data) => {
@@ -26,5 +26,5 @@ export const makeQuestionsAnswers = (counter) => {
 
 export const playGame = () => {
   const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  startGameEngine(task, makeQuestionsAnswers);
+  runGame(task, makeQuestionsAnswers);
 };

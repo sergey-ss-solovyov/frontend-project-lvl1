@@ -1,4 +1,4 @@
-import startGameEngine from '../index.js';
+import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
 const progressionLength = 10;
@@ -34,5 +34,5 @@ export const makeQuestionsAnswers = (counter) => {
 
 export const playGame = () => {
   const task = 'What number is missing in the progression?';
-  startGameEngine(task, makeQuestionsAnswers);
+  runGame(task, makeQuestionsAnswers);
 };

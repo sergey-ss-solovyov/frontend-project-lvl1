@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export default (task, calculator) => {
+export default (task, fetchQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
   const username = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${username}!`);
@@ -8,24 +8,24 @@ export default (task, calculator) => {
 
   const numberOfRounds = 3;
 
-  const startGameEngine = (calculatorFunc, counter) => {
+  const runEngine = (fetchQuestionAnswer, counter) => {
     if (counter === numberOfRounds) {
       console.log(`Congratulations, ${username}!`);
       return;
     }
 
-    const questionsAndAnswers = calculatorFunc(numberOfRounds);
+    const questionsAndAnswers = fetchQuestionAnswer(numberOfRounds);
     console.log(`Question: ${questionsAndAnswers[counter][0]}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const isUserRight = userAnswer === questionsAndAnswers[counter][1];
 
     if (isUserRight) {
       console.log('Correct!');
-      startGameEngine(calculatorFunc, counter + 1);
+      runEngine(fetchQuestionAnswer, counter + 1);
     } else {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${questionsAndAnswers[counter][1]}".`);
       console.log(`Let's try again, ${username}!`);
     }
   };
-  startGameEngine(calculator, 0);
+  runEngine(fetchQuestionAndAnswer, 0);
 };
