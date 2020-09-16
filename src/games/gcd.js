@@ -22,18 +22,14 @@ const makeNumbers = () => {
   return [number1, number2];
 };
 
-export const makeQuestionsAnswers = (counter) => {
-  const iter = (acc) => {
-    if (acc.length === counter) return acc;
-    const [number1, number2] = makeNumbers();
-    const question = `${number1} ${number2}`;
-    const gcd = String(findGcd(number1, number2));
-    return iter([...acc, [question, gcd]]);
-  };
-  return iter([]);
+export const makeQuestionAndAnswer = () => {
+  const [number1, number2] = makeNumbers();
+  const question = `${number1} ${number2}`;
+  const answer = String(findGcd(number1, number2));
+  return { question, answer };
 };
 
 export const playGame = () => {
   const task = 'Find the greatest common divisor of given numbers.';
-  runGame(task, makeQuestionsAnswers);
+  runGame(task, makeQuestionAndAnswer);
 };

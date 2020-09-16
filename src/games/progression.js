@@ -17,21 +17,17 @@ const makeGameProgression = () => {
   return gameProgression;
 };
 
-export const makeQuestionsAnswers = (counter) => {
-  const iter = (acc) => {
-    if (acc.length === counter) return acc;
-    const gameProgression = makeGameProgression();
-    const { length } = gameProgression;
-    const substituteIndex = makeRandomNumber(1, length - 2);
-    const substituteValue = String(gameProgression[substituteIndex]);
-    gameProgression[substituteIndex] = '..';
-    const question = gameProgression.join(' ');
-    return iter([...acc, [question, substituteValue]]);
-  };
-  return iter([]);
+export const makeQuestionAndAnswer = () => {
+  const gameProgression = makeGameProgression();
+  const { length } = gameProgression;
+  const substituteIndex = makeRandomNumber(1, length - 2);
+  const answer = String(gameProgression[substituteIndex]);
+  gameProgression[substituteIndex] = '..';
+  const question = gameProgression.join(' ');
+  return { question, answer };
 };
 
 export const playGame = () => {
   const task = 'What number is missing in the progression?';
-  runGame(task, makeQuestionsAnswers);
+  runGame(task, makeQuestionAndAnswer);
 };

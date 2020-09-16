@@ -14,16 +14,17 @@ export default (task, fetchQuestionAndAnswer) => {
       return;
     }
 
-    const questionsAndAnswers = fetchQuestionAnswer(numberOfRounds);
-    console.log(`Question: ${questionsAndAnswers[counter][0]}`);
+    const questionAndAnswer = fetchQuestionAnswer();
+    const { question, answer } = questionAndAnswer;
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const isUserRight = userAnswer === questionsAndAnswers[counter][1];
+    const isUserRight = userAnswer === answer;
 
     if (isUserRight) {
       console.log('Correct!');
       runEngine(fetchQuestionAnswer, counter + 1);
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${questionsAndAnswers[counter][1]}".`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}".`);
       console.log(`Let's try again, ${username}!`);
     }
   };
