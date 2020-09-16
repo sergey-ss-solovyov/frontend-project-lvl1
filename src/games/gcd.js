@@ -1,11 +1,11 @@
 import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
-const findGcd = (num1, num2) => {
+const findGcd = (number1, number2) => {
   // a = bq + r, where 0 <= r < | b |
-  let a = num1;
-  let b = num2;
-  let r = 1;
+  let a = number1;
+  let b = number2;
+  let r;
   do {
     r = a % b;
     if (r !== 0) {
@@ -16,19 +16,19 @@ const findGcd = (num1, num2) => {
   return b;
 };
 
-const makeNumbersAndGcd = () => {
-  const num1 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
-  const num2 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
-  const gcd = String(findGcd(num1, num2));
-  return [num1, num2, gcd];
+const makeNumbers = () => {
+  const number1 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
+  const number2 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
+  return [number1, number2];
 };
 
 export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
     if (acc.length === counter) return acc;
-    const [num1, num2, answer] = makeNumbersAndGcd();
-    const question = `${num1} ${num2}`;
-    return iter([...acc, [question, answer]]);
+    const [number1, number2] = makeNumbers();
+    const question = `${number1} ${number2}`;
+    const gcd = String(findGcd(number1, number2));
+    return iter([...acc, [question, gcd]]);
   };
   return iter([]);
 };

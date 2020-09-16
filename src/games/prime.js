@@ -2,14 +2,14 @@ import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
 const isPrime = (data) => {
-  const iter = (n) => {
-    if (n > data / 2) {
+  const iter = (number) => {
+    if (number > data / 2) {
       return true;
     }
-    if (data % n === 0) {
+    if (data % number === 0) {
       return false;
     }
-    return iter(n + 1);
+    return iter(number + 1);
   };
   return iter(2);
 };

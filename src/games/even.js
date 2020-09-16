@@ -1,7 +1,7 @@
 import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
-const isEven = (num) => num % 2 === 0;
+const isEven = (number) => number % 2 === 0;
 
 export const makeQuestionsAnswers = (counter) => {
   const iter = (acc) => {
