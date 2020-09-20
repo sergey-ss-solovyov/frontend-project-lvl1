@@ -9,17 +9,11 @@ const makeSequence = (start, length, step) => {
   return sequence;
 };
 
-const makeGameProgression = () => {
-  const firstValue = makeRandomNumber(1, 10);
-  const progressionLength = 10;
-  const stepValue = makeRandomNumber(1, 10);
-  const gameProgression = makeSequence(firstValue, progressionLength, stepValue);
-  return gameProgression;
-};
-
 export const makeQuestionAndAnswer = () => {
-  const gameProgression = makeGameProgression();
-  const { length } = gameProgression;
+  const firstValue = makeRandomNumber(1, 10);
+  const length = 10;
+  const stepValue = makeRandomNumber(1, 10);
+  const gameProgression = makeSequence(firstValue, length, stepValue);
   const substituteIndex = makeRandomNumber(1, length - 2);
   const answer = String(gameProgression[substituteIndex]);
   gameProgression[substituteIndex] = '..';

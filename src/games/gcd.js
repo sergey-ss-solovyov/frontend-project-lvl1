@@ -1,29 +1,11 @@
 import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
-const findGcd = (number1, number2) => {
-  // a = bq + r, where 0 <= r < | b |
-  let a = number1;
-  let b = number2;
-  let r;
-  do {
-    r = a % b;
-    if (r !== 0) {
-      a = b;
-      b = r;
-    }
-  } while (r > 0);
-  return b;
-};
-
-const makeNumbers = () => {
-  const number1 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
-  const number2 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
-  return [number1, number2];
-};
+const findGcd = (num1, num2) => (num2 ? findGcd(num2, num1 % num2) : num1);
 
 export const makeQuestionAndAnswer = () => {
-  const [number1, number2] = makeNumbers();
+  const number1 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
+  const number2 = makeRandomNumber(2, 10) * makeRandomNumber(2, 10);
   const question = `${number1} ${number2}`;
   const answer = String(findGcd(number1, number2));
   return { question, answer };

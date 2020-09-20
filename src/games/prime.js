@@ -1,22 +1,23 @@
 import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
-const isPrime = (data) => {
-  const iter = (number) => {
-    if (number > data / 2) {
+const isNumberPrime = (number) => {
+  if (number < 2) return false;
+  const iter = (divisor) => {
+    if (divisor > number / 2) {
       return true;
     }
-    if (data % number === 0) {
+    if (number % divisor === 0) {
       return false;
     }
-    return iter(number + 1);
+    return iter(divisor + 1);
   };
   return iter(2);
 };
 
 export const makeQuestionAndAnswer = () => {
   const question = makeRandomNumber(2, 113);
-  const answer = isPrime(question) ? 'yes' : 'no';
+  const answer = isNumberPrime(question) ? 'yes' : 'no';
   return { question, answer };
 };
 

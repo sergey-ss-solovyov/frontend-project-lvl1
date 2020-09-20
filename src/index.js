@@ -14,13 +14,11 @@ export default (task, fetchQuestionAndAnswer) => {
       return;
     }
 
-    const questionAndAnswer = fetchQuestionAnswer();
-    const { question, answer } = questionAndAnswer;
+    const { question, answer } = fetchQuestionAnswer();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const isUserRight = userAnswer === answer;
 
-    if (isUserRight) {
+    if (userAnswer === answer) {
       console.log('Correct!');
       runEngine(fetchQuestionAnswer, counter + 1);
     } else {
