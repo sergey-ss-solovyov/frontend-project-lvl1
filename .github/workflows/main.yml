@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [ master ]
-# pull_request: // add when it's needed
-# branches: [ master ] // add when it's needed
 
 jobs:
   build:
