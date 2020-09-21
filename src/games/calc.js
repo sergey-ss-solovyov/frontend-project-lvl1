@@ -7,17 +7,11 @@ const { length } = operators;
 const calculateExpression = (number1, number2, operator) => {
   switch (operator) {
     case '+':
-      return String(number1 + number2);
+      return number1 + number2;
     case '-':
-      return String(number1 - number2);
+      return number1 - number2;
     case '*':
-      return String(number1 * number2);
-    case '/':
-      return String(number1 / number2);
-    case '**':
-      return String(number1 ** number2);
-    case '%':
-      return String(number1 % number2);
+      return number1 * number2;
     default:
       return null;
   }
@@ -28,7 +22,7 @@ export const makeQuestionAndAnswer = () => {
   const number2 = makeRandomNumber(0, 99);
   const operator = operators[makeRandomNumber(0, length - 1)];
   const question = `${number1} ${operator} ${number2}`;
-  const answer = calculateExpression(number1, number2, operator);
+  const answer = String(calculateExpression(number1, number2, operator));
   return { question, answer };
 };
 
