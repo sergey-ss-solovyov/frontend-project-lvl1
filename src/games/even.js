@@ -1,11 +1,11 @@
 import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
-const isNumberEven = (number) => number % 2 === 0;
+const isEvenNumber = (number) => number % 2 === 0;
 
 export const makeQuestionAndAnswer = () => {
   const question = makeRandomNumber(0, 99);
-  const answer = isNumberEven(question) ? 'yes' : 'no';
+  const answer = isEvenNumber(question) ? 'yes' : 'no';
   return { question, answer };
 };
 
