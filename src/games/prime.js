@@ -1,5 +1,5 @@
+import _ from 'lodash';
 import runGame from '../index.js';
-import makeRandomNumber from '../random-number-generator.js';
 
 const isNumberPrime = (number) => {
   if (number < 2) return false;
@@ -16,7 +16,7 @@ const isNumberPrime = (number) => {
 };
 
 export const makeQuestionAndAnswer = () => {
-  const question = makeRandomNumber(2, 113);
+  const question = _.random(2, 113);
   const answer = isNumberPrime(question) ? 'yes' : 'no';
   return { question, answer };
 };

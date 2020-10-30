@@ -1,5 +1,5 @@
+import _ from 'lodash';
 import runGame from '../index.js';
-import makeRandomNumber from '../random-number-generator.js';
 
 const makeSequence = (start, length, step) => {
   const sequence = [];
@@ -10,11 +10,11 @@ const makeSequence = (start, length, step) => {
 };
 
 export const makeQuestionAndAnswer = () => {
-  const firstValue = makeRandomNumber(1, 10);
+  const firstValue = _.random(1, 10);
   const length = 10;
-  const stepValue = makeRandomNumber(1, 10);
+  const stepValue = _.random(1, 10);
   const gameProgression = makeSequence(firstValue, length, stepValue);
-  const substituteIndex = makeRandomNumber(1, length - 2);
+  const substituteIndex = _.random(1, length - 2);
   const answer = String(gameProgression[substituteIndex]);
   gameProgression[substituteIndex] = '..';
   const question = gameProgression.join(' ');

@@ -1,10 +1,10 @@
+import _ from 'lodash';
 import runGame from '../index.js';
-import makeRandomNumber from '../random-number-generator.js';
 
 const isEvenNumber = (number) => number % 2 === 0;
 
 export const makeQuestionAndAnswer = () => {
-  const question = makeRandomNumber(0, 99);
+  const question = _.random(99);
   const answer = isEvenNumber(question) ? 'yes' : 'no';
   return { question, answer };
 };
