@@ -29,6 +29,7 @@
   "homepage": "https://github.com/sergey-ss-solovyov/frontend-project-lvl1#readme",
   "type": "module",
   "dependencies": {
+    "lodash": "^4.17.20",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

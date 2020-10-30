@@ -1,8 +1,8 @@
+import _ from 'lodash';
 import runGame from '../index.js';
 import makeRandomNumber from '../random-number-generator.js';
 
 const operators = ['+', '-', '*'];
-const { length } = operators;
 
 const calculateExpression = (number1, number2, operator) => {
   switch (operator) {
@@ -20,7 +20,7 @@ const calculateExpression = (number1, number2, operator) => {
 export const makeQuestionAndAnswer = () => {
   const number1 = makeRandomNumber(0, 99);
   const number2 = makeRandomNumber(0, 99);
-  const operator = operators[makeRandomNumber(0, length - 1)];
+  const operator = _.sample(operators);
   const question = `${number1} ${operator} ${number2}`;
   const answer = String(calculateExpression(number1, number2, operator));
   return { question, answer };
